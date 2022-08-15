@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from './components/Header';
 
 //import './assets/stylesheets/App.scss';
-import GithubInfo from './components/GithubInfo';
+import SearchInfoForm from './components/SearchInfoForm';
 
 const App = () => {
 
@@ -11,7 +11,7 @@ const App = () => {
         <div className="page-wrapper">
         <Header />
         <Routes>
-            <Route path="/" element={<GithubInfo/>} />
+            <Route path="/" element={<SearchInfoForm/>} />
         </Routes>
         </div>
        

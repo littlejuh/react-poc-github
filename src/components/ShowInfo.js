@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import { githubGetUserInfo } from '../api/github';
-class GithubInfo extends Component {
-    constructor() {
-        super();
-        this.state = {
-          name: '',
-          location: '',
-        };
+class ShowInfo extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {name: '', location: ''};
       }
 
     async componentDidMount() {
         let response;
         try {
-            const user  = 'littlejuh';
+            const user  = this.props.name;
             response = await githubGetUserInfo({ user });
         } catch ({ error }) {
              console.log('catch')
@@ -24,18 +21,15 @@ class GithubInfo extends Component {
             });
         }
   }
-
   render() {
     return (
-        <div className="content">
-          <div className="message">
-            <p>{this.state.name}</p>
-            <p>{this.state.location}</p>
-          </div>
+        <div className="content">  
+            <h3>{this.state.name}</h3>
+            <h3>{this.state.location}</h3>
         </div>
     );
   }
 }
 
-export default GithubInfo;
+export default ShowInfo;
 
